@@ -1,3 +1,11 @@
 Spree::Core::Engine.routes.draw do
-  # Add your extension routes here
+  namespace :admin do
+    resources :products do
+      resources :images do
+        collection do
+          get 'multi_upload'
+        end
+      end
+    end
+  end
 end
