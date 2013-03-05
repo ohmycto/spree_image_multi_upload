@@ -7,9 +7,14 @@ Spree::Admin::ImagesController.class_eval do
 
     if @object.save
       invoke_callbacks(:create, :after)
+      result = {
+          :files => [
+              @object.to_jq_upload
+          ]
+      }
       respond_to do |format|
-        format.html { render :json => @object.to_jq_upload, :content_type => 'text/html', :layout => false }
-        format.json { render json: @object.to_jq_upload, status: :created }
+        format.html { render :json => result, :content_type => 'text/html', :layout => false }
+        format.json { render json: result, status: :created }
       end
     else
       respond_to do |format|
