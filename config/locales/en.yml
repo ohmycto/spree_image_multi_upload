@@ -1,5 +1,15 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 en:
-  hello: "Hello world"
+  multi_upload:
+    title: 'Advanced Images Upload'
+    add_files: 'Add files...'
+    start: 'Start upload'
+    cancel: 'Cancel upload'
+    destroy: 'Delete'
+    errors:
+      max_file_size: 'File is too big'
+      min_file_size: 'File is too small'
+      accept_file_types: 'Filetype not allowed'
+      max_number_of_files: 'Max number of files exceeded'
+      uploaded_bytes: 'Uploaded bytes exceed file size'
+      empty_result: 'Empty file upload result'
+
