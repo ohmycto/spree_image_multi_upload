@@ -9,7 +9,11 @@ Spree::Admin::ImagesController.class_eval do
       invoke_callbacks(:create, :after)
       result = {
           :files => [
-              @object.to_jq_upload
+              @object.to_jq_upload.merge({
+                  # TODO: this is a dirty hack. See model decorator TODO for details
+                  :edit_url => edit_admin_product_image_url(@object.viewable.product, @object),
+                  :delete_url => admin_product_image_url(@object.viewable.product , @object)
+              })
           ]
       }
       respond_to do |format|
